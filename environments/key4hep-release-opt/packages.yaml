@@ -3,3 +3,5 @@ packages:
     require: ~fastjet~latex+lcio~lhapdf+openloops+openmp+pythia8+gosam hepmc=3
   py-setuptools:
     require: "@69"
+  py-numpy:
+    require: "@1.26.4"
