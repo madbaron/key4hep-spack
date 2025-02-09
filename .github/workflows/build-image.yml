@@ -3,6 +3,7 @@ on:
   push:
     branches:
     - main
+    - macos
   workflow_dispatch:
 
 env:
@@ -19,7 +20,7 @@ jobs:
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: true
-    runs-on: ubuntu-latest
+    runs-on: [ubuntu-latest,macos-latest]
     strategy:
       matrix:
         os: [{dir: AlmaLinux9,suffix: alma9}]
