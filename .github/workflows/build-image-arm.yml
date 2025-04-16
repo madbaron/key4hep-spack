@@ -3,6 +3,7 @@ on:
   push:
     branches:
     - main
+    - arm_images
   workflow_dispatch:
 
 env:
@@ -63,7 +64,7 @@ jobs:
         with:
           push: true
           context: ./Docker/${{matrix.os.dir}}
-          file: ./Docker/${{matrix.os.dir}}/Dockerfile-externals
+          file: ./Docker/${{matrix.os.dir}}/Dockerfile-externals-arm
           build-args: |
             GITHUB_REPOSITORY=${{ github.repository }}
             COMMIT_SHA=${{ github.sha }}
