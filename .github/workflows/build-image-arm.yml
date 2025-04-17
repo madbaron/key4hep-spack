@@ -53,7 +53,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ env.REGISTRY }}/${{ github.repository_owner }}/key4hep-externals
+          images: ${{ env.REGISTRY }}/${{ github.repository_owner }}/key4hep-externals-arm
       - name: Determine spack ref
         id: getref
         run: |
@@ -63,6 +63,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
+          platforms: linux/arm64
           context: ./Docker/${{matrix.os.dir}}
           file: ./Docker/${{matrix.os.dir}}/Dockerfile-externals-arm
           build-args: |
