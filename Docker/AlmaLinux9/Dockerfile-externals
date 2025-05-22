@@ -3,7 +3,7 @@
 #  Tag:        ${VERSION}-alma9
 ###############################################################################
 
-FROM ghcr.io/madbaron/key4hep-images/alma9:arm-images
+FROM ghcr.io/key4hep/key4hep-images/alma9:latest
 
 # Picking specific commits
 ARG SPACK_COMMIT=6cb16c39ab85fbc211e50be804fa7a15f24ccebc
@@ -15,7 +15,6 @@ RUN dnf install -y gcc gcc-c++ gcc-gfortran lbzip2 unzip
 
 # Setting up Spack
 RUN git clone https://github.com/spack/spack.git /opt/spack && \
-    echo "export SPACK_ROOT=/opt/spack" >> /opt/setup_spack.sh && \
     echo "source /opt/spack/share/spack/setup-env.sh" >> /opt/setup_spack.sh && \
     echo "alias setup_spack=\"source /opt/setup_spack.sh\"" >> /etc/profile.d/aliases.sh
 
